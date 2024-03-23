@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="cmsv6flash"></div>
+    <!-- <script>
+        var url = 'ws://43.229.135.146:6611/3/5?DownType=5&jsession=&DevIDNO=23115725861&FILELOC=2&FILESVR=7&FILECHN=0&FILEBEG=9&FILEEND=909&PLAYIFRM=0&PLAYFILE=C:/gStorage/RECORD_FILE/23115725861/2024-03-21/camera-11-1_0-240321-000009-001509-20010100.mp4&PLAYBEG=0&PLAYEND=0&PLAYCHN=0&YEAR=24&MON=3&DAY=21';
+        var ws = new WebSocket(url);
+        var videoPlayer = document.getElementById('videoPlayer');
+
+        ws.onmessage = function(event) {
+            var blob = new Blob([event.data], { type: 'video/mp4' });
+            videoPlayer.src = URL.createObjectURL(blob);
+            videoPlayer.play();
+        };
+    </script> -->
+    <script src="swfobject-all.js"></script>
+    <script src="swfobject.js"></script>
+    <script src="js/cmsv6player.min.js"></script>
+
+    <script>
+      //After the video plug-in Init is complete Calls it
+      startPlayback() 
+      //Start Playback
+      function startPlayback() {
+        //Stop Playback
+        swfobject.getObjectById("cmsv6flash").stopVideo(0);
+        //Start Playback
+        var ret = swfobject
+          .getObjectById("cmsv6flash")
+          .startVod(
+            0,
+            "http://43.229.135.146:6604/3/5?DownType=5&DevIDNO=23115725861&FILELOC=1&FILESVR=0&FILECHN=0&FILEBEG=1&FILEEND=100&PLAYIFRM=0&PLAYFILE=C:/gStorage/RECORD_FILE/23115725861/2024-03-21/camera-11-1_0-240321-000009-001509-20010100.mp4&PLAYBEG=0&PLAYEND=0&PLAYCHN=0"
+          );
+      }
+      //Stop Playback
+      function stopPlayback() {
+        swfobject.getObjectById("cmsv6flash").stopVideo(0);
+      }
+    </script>
+  </body>
+</html>
